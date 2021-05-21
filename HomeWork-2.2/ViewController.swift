@@ -56,19 +56,38 @@ class ViewController: UIViewController {
     @IBAction func redSender(_ sender: UISlider) {
         changColor()
         redLabel.text = String((sender.value * 100).rounded() / 100)
-        
+        // cheng color buten slaider
+        if sender.value == rSlider.maximumValue {
+            rSlider.thumbTintColor = UIColor.red
+        } else {
+            rSlider.thumbTintColor = UIColor.white
+        }
     }
     @IBAction func greenSender(_ sender: UISlider) {
         changColor()
         greenLabel.text = String((sender.value * 100).rounded() / 100)
+        // cheng color buten slaider
+        if sender.value == gSlaider.maximumValue {
+            gSlaider.thumbTintColor = UIColor.green
+        } else {
+            gSlaider.thumbTintColor = UIColor.white
+        }
     }
     @IBAction func blueSender(_ sender: UISlider) {
         changColor()
         blueLabel.text = String((sender.value * 100).rounded() / 100)
+        // cheng color buten slaider
+        if sender.value == bSlaider.maximumValue {
+            bSlaider.thumbTintColor = UIColor.blue
+        } else {
+            bSlaider.thumbTintColor = UIColor.white
+        }
     }
     @IBAction func alfaSender(_ sender: UISlider) {
         changColor()
         alfaLabel.text = String((sender.value * 100).rounded() / 100)
     }
+    
+    
 }
 
