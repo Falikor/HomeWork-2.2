@@ -51,6 +51,18 @@ class ViewController: UIViewController {
     private func changColor() {
         viewPrint.backgroundColor = UIColor(displayP3Red: CGFloat(rSlider.value), green: CGFloat(gSlaider.value), blue: CGFloat(bSlaider.value), alpha: CGFloat(aSlaider.value))
     }
+    private func alterVC() {
+
+        if rSlider.value == 1 && gSlaider.value == 1 && bSlaider.value == 1 && aSlaider.value == 1 {
+        let alertVCMax = UIAlertController(title: "Maximum values", message: "All values maximum, you see white view", preferredStyle: .alert)
+        alertVCMax.addAction(UIAlertAction(title: "Thanks", style: .default))
+        present(alertVCMax, animated: true)
+        } else if rSlider.value == 0 && gSlaider.value == 0 && bSlaider.value == 0 && aSlaider.value == 0 {
+            let alertVCMin = UIAlertController(title: "Minimum values", message: "All values minimum, you see nothing", preferredStyle: .alert)
+            alertVCMin .addAction(UIAlertAction(title: "Thanks", style: .default))
+            present(alertVCMin , animated: true)
+        }
+    }
     
 // creat action sliders wich use func change color and sed valeus in label
     @IBAction func redSender(_ sender: UISlider) {
@@ -62,6 +74,7 @@ class ViewController: UIViewController {
         } else {
             rSlider.thumbTintColor = UIColor.white
         }
+        alterVC()
     }
     @IBAction func greenSender(_ sender: UISlider) {
         changColor()
@@ -72,6 +85,7 @@ class ViewController: UIViewController {
         } else {
             gSlaider.thumbTintColor = UIColor.white
         }
+        alterVC()
     }
     @IBAction func blueSender(_ sender: UISlider) {
         changColor()
@@ -82,12 +96,12 @@ class ViewController: UIViewController {
         } else {
             bSlaider.thumbTintColor = UIColor.white
         }
+        alterVC()
     }
     @IBAction func alfaSender(_ sender: UISlider) {
         changColor()
         alfaLabel.text = String((sender.value * 100).rounded() / 100)
+        alterVC()
     }
-    
-    
 }
 
